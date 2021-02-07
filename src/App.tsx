@@ -1,38 +1,33 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, StatusBar, Image} from 'react-native';
+import {StatusBar} from 'react-native';
+import styled from '@emotion/native';
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={styles.container}>
-        <Image
-          style={styles.logo}
-          source={require('~/assets/images/logo.jpg')}
-        />
-        <Image
-          style={styles.logoText}
-          source={require('~/assets/images/logo_text.jpg')}
-        />
-      </SafeAreaView>
+      <Container>
+        <Logo source={require('~/assets/images/logo.jpg')} />
+        <LogoText source={require('~/assets/images/logo_text.jpg')} />
+      </Container>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-  logoText: {
-    width: 200,
-    height: 60,
-  },
-});
-
 export default App;
+
+const Container = styled.SafeAreaView`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Logo = styled.Image`
+  width: 100px;
+  height: 100px;
+`;
+
+const LogoText = styled.Image`
+  width: 200px;
+  height: 60px;
+`;
